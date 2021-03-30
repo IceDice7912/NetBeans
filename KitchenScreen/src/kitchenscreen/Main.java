@@ -19,7 +19,7 @@ public class Main {
      */
     public static void main(String[] args) {
         JFrame.setDefaultLookAndFeelDecorated(true);
-        UI ui = new UI();
+        Ui ui = new Ui();
         ui.setBounds(300, 200, 400, 300);
         ui.setVisible(true);
     }
