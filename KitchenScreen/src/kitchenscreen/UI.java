@@ -15,8 +15,9 @@ import java.util.List;
 import java.util.Properties;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JComboBox;
 import javax.swing.table.DefaultTableModel;
-import my.ai.util.vo.OrderVO;
+import com.mulcam.ai.web.vo.OrderVO;
 
 /**
  *
@@ -25,6 +26,7 @@ import my.ai.util.vo.OrderVO;
 public class Ui extends javax.swing.JFrame {
     ObjectOutputStream out;
     String columnNames[];
+    JComboBox comboBox;
     /**
      * Creates new form Ui
      */
@@ -158,7 +160,7 @@ public class Ui extends javax.swing.JFrame {
                             System.out.println(i);
                             data[i][0]=vo.getOrder_group_no();
                             System.out.println(data[i][0]);
-                            data[i][1]=vo.getproduct_name();
+                            data[i][1]=vo.getProduct_name();
                             data[i][2]=vo.getQuantity();
                             data[i][3]=vo.getOrdermethod();
                             data[i][4]=vo.getOrderdate();
@@ -175,6 +177,16 @@ public class Ui extends javax.swing.JFrame {
         } catch (IOException ex) {
             ex.printStackTrace();
         }
+    }
+
+    private void comboBoxEvent() {
+        System.out.println("콤보박스 이벤트 호출됨");
+        comboBox.addActionListener((e)->{
+            String status=comboBox.getSelectedItem().toString();
+            if(status.equals("완료")){
+                System.out.println("QR 생성");
+            }
+        });
     }
 }
 
